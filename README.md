@@ -1,6 +1,6 @@
 # langgraph-agent001
 
-Minimal LangGraph/LangChain agent using Google Gemini Flash — starting point for incremental development.
+Minimal LangGraph/LangChain agent using OpenRouter by default, with Gemini fallback.
 
 ## Setup
 
@@ -15,7 +15,8 @@ pip install -r requirements.txt
 
 # 3. Configure the API key
 cp .env.example .env
-# Edit .env and add your GOOGLE_API_KEY
+# Edit .env and add your OPENROUTER_API_KEY
+# Optional fallback key: GOOGLE_API_KEY
 ```
 
 ## Run
@@ -24,7 +25,7 @@ cp .env.example .env
 python agent.py
 ```
 
-Type a message and the agent will reply using Gemini Flash.
+Type a message and the agent will try OpenRouter first. If OpenRouter fails, it falls back to Gemini.
 
 ## Project structure
 
@@ -42,4 +43,4 @@ requirements.txt  # Python dependencies
 START → llm → END
 ```
 
-The `llm` node sends the user input to `gemini-1.5-flash` and writes the reply back into the shared state.
+The `llm` node sends the user input to OpenRouter first and writes the reply back into the shared state. If the call fails, it retries with Gemini.
