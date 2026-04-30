@@ -12,6 +12,7 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 # 2. Install dependencies
 pip install -r requirements.txt
 
+
 # 3. Configure the API key
 cp .env.example .env
 # Edit .env and add your GOOGLE_API_KEY

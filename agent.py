@@ -17,7 +17,7 @@ class AgentState(TypedDict):
 
 # --- Model ---
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
 
 # --- Nodes ---
